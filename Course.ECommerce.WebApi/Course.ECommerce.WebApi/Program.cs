@@ -1,9 +1,6 @@
-using Course.ECommerce.Aplication.Services;
-using Course.ECommerce.Aplication.ServicesImpl;
-using Course.ECommerce.Domain.Repositories;
+using Course.ECommerce.Aplication;
+using Course.ECommerce.Domain;
 using Course.ECommerce.Infrastructure;
-using Course.ECommerce.Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,16 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-//AGREGAR CONEXION A BDD
-builder.Services.AddDbContext<ECommerceDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ECommerce"));
-});
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDomain(builder.Configuration);
+builder.Services.AddAplication(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 
 //Inyectar o configurar las dependencias
 //IRepositoryCatalogue = RepositoryCatalogue
@@ -35,14 +30,14 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
 //builder.Services.AddTransient<IProductBrandRepository, ProductBrandRepository>();
 //REPOSITORIO GENERICO
-builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+//builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 //builder.Services.AddTransient<IClientRepository, ClientRepository>();
 //Forma. Methods
 //SERVICIOS DE APLICACION
 //builder.Services.AddTransient(typeof(ICatalogueApplication),typeof(CatalogueApplication));
-builder.Services.AddTransient(typeof(IProductApplication),typeof(ProductApplication));
-builder.Services.AddTransient(typeof(IProductTypeApplication),typeof(ProductTypeApplication));
-builder.Services.AddTransient(typeof(IProductBrandApplication),typeof(ProductBrandApplication));
+//builder.Services.AddTransient(typeof(IProductApplication),typeof(ProductApplication));
+//builder.Services.AddTransient(typeof(IProductTypeApplication),typeof(ProductTypeApplication));
+//builder.Services.AddTransient(typeof(IProductBrandApplication),typeof(ProductBrandApplication));
 
 var app = builder.Build();
 

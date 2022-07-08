@@ -492,6 +492,8 @@
       },
       "Course.ECommerce.Domain/1.0.0": {
         "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "System.Runtime": "4.3.0"
         },
         "runtime": {

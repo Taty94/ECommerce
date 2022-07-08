@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj": {}
+    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj": {
+    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj",
+        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj",
         "projectName": "Course.ECommerce.Aplication",
-        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj",
+        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj",
         "packagesPath": "C:\\Users\\Tatiana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\obj\\",
+        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tatiana\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
-                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj"
+              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
+                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj"
               },
-              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj"
+              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj"
               }
             }
           }
@@ -47,9 +47,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "AutoMapper": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[11.0.1, )"
+              "version": "[11.0.0, )"
             }
           },
           "imports": [
@@ -71,14 +71,14 @@
         }
       }
     },
-    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
+    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
         "projectName": "Course.ECommerce.Domain",
-        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
+        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
         "packagesPath": "C:\\Users\\Tatiana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tatiana\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -107,6 +107,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "System.Runtime": {
               "target": "Package",
               "version": "[4.3.0, )"
@@ -131,14 +139,14 @@
         }
       }
     },
-    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj": {
+    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj",
         "projectName": "Course.ECommerce.Infrastructure",
-        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Tatiana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\obj\\",
+        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tatiana\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -155,8 +163,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
-                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj"
+              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
+                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj"
               }
             }
           }
@@ -201,14 +209,14 @@
         }
       }
     },
-    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj": {
+    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj",
         "projectName": "Course.ECommerce.WebApi",
-        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj",
+        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj",
         "packagesPath": "C:\\Users\\Tatiana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tatiana\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -225,11 +233,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj": {
-                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj"
+              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj": {
+                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj"
               },
-              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
-                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj"
+              "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
+                "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj"
               }
             }
           }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {}
+    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
+    "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
         "projectName": "Course.ECommerce.Domain",
-        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
+        "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
         "packagesPath": "C:\\Users\\Tatiana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tatiana\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "System.Runtime": {
               "target": "Package",
               "version": "[4.3.0, )"

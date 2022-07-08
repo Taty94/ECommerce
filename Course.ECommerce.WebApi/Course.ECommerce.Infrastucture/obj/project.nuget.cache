@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oxqRN5oEVf09W2ok4aLOPWGpd9XCvYL+HRvRsL7jvMmomVqRckfwfPW0mLn2nqm970WoEeJca1dQslTetJybvA==",
+  "dgSpecHash": "AoyV0TEdhFjAOj4NDhSYrDU1LZR7j3BJ9WqoaPGr9buHYzkdqEg7oItV74ULw53hSU666QrMdeT5JAJusymncw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Infrastucture\\Course.ECommerce.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tatiana\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Course.ECommerce.Aplication.Classes;
 using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
@@ -15,10 +16,12 @@ namespace Course.ECommerce.Aplication.ServicesImpl
     public class ProductApplication : IProductApplication
     {
         private readonly IGenericRepository<Product> productRepository;
+        private readonly IMapper mapper;
 
         public ProductApplication(IGenericRepository<Product> repository, IMapper mapper)
         {
             this.productRepository = repository;
+            this.mapper = mapper;
         }
 
         //public async Task<ICollection<ProductDto>> GetProductsAsync()
@@ -49,34 +52,46 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             query = query.Where(p => p.Id == Id);
 
             #region mappear
-            var resultQuery = await query.Select(p => new ProductDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Description = p.Description,
-                ProductBrand = p.ProductBrand.Description,
-                ProductType = p.ProductType.Description,
-                CreationDate = p.CreationDate,
-                ModifiedDate = p.ModifiedDate
-            }).SingleOrDefaultAsync();
+            //var resultQuery = await query.Select(p => new ProductDto
+            //{
+            //    Id = p.Id,
+            //    Name = p.Name,
+            //    Price = p.Price,
+            //    Description = p.Description,
+            //    ProductBrand = p.ProductBrand.Description,
+            //    ProductType = p.ProductType.Description,
+            //    CreationDate = p.CreationDate,
+            //    ModifiedDate = p.ModifiedDate
+            //}).SingleOrDefaultAsync();
             #endregion
-            return resultQuery;
+
+            #region automapper
+            var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<Product, ProductDto>()
+                                .ForMember(p => p.ProductBrand, x => x.MapFrom(org => org.ProductBrand.Description))
+                                .ForMember(p => p.ProductType, x => x.MapFrom(org => org.ProductType.Description)));
+            var resultQuery = query.ProjectTo<ProductDto>(configuration);
+            #endregion
+
+            return await resultQuery.SingleOrDefaultAsync();
         }
 
         public async Task<ProductDto> PostAsync(CreateProductDto productDto)
         {
             #region mappear
-            var product = new Product()
-            {
-                Name = productDto.Name,
-                Price = productDto.Price,
-                Description = productDto.Description,
-                ProductBrandId = productDto.ProductBrandId,
-                ProductTypeId = productDto.ProductTypeId,
-                CreationDate = DateTime.Now
-            };
+            //var product = new Product()
+            //{
+            //    Name = productDto.Name,
+            //    Price = productDto.Price,
+            //    Description = productDto.Description,
+            //    ProductBrandId = productDto.ProductBrandId,
+            //    ProductTypeId = productDto.ProductTypeId,
+            //    CreationDate = DateTime.Now
+            //};
             #endregion
+
+            var product = mapper.Map<Product>(productDto);
+            product.CreationDate = DateTime.Now;
+
             var result = await productRepository.PostAsync(product);
             return await GetProductByIdAsync(result.Id);
         }

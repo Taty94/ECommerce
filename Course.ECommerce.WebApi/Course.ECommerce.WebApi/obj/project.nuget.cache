@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9pve+bYnPVo7PYAl7pNmRbxSHYiLaTC4dkl47XoSRx1+CHpm/xsz/4Ic9xErqSHunZ4xBhYTM3sozkytyeZF7w==",
+  "dgSpecHash": "RuM7YXKGy6kJDQLwmt3+RFre0Hip7E+lfa8nJLq6dii41pxOQQkxTyk0TtlYhWbaW3XnJH5lcWCryPWl2qiBnw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj",
+  "projectFilePath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi\\Course.ECommerce.WebApi.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Tatiana\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Tatiana\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Tatiana\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

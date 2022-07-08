@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GZOR2uRPgOcy+zmZJiQHSYAx0dHgK6Cbbg/LbaL5a5xrYipjBnycBL+ZgNAlu7BDf7BQqSEo099LXA86TZph6A==",
+  "dgSpecHash": "k6D+FRJFEN2CUOc0SQhfC8IOugeBsd4fuWtrLA/qNPPc+6+xZZ4WYLyspvmV9hF4HodPcQUeCCqYnTdXwiQMPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj",
+  "projectFilePath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Tatiana\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Tatiana\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Tatiana\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
