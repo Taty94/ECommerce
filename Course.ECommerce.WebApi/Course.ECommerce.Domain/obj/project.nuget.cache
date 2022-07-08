@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "3nXEh/3KjeiLvEpzgl5jtXdfjWa2ErHcOsRu6A0+aGmt6TQGbxBFVhK8QPHbbx/ZGsH3iX13hzZqu/MBM0mgqQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Tatiana\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
