@@ -1,77 +1,106 @@
-﻿using Course.ECommerce.Aplication.Classes;
+﻿using AutoMapper;
+using Course.ECommerce.Aplication.Classes;
 using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities;
 using Course.ECommerce.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Course.ECommerce.Aplication.ServicesImpl
 {
     public class ProductBrandApplication : IProductBrandApplication
     {
         private readonly IGenericRepository<ProductBrand> brandRepository;
+        private readonly IMapper mapper;
 
-        public ProductBrandApplication(IGenericRepository<ProductBrand> repository)
+        public ProductBrandApplication(IGenericRepository<ProductBrand> repository, IMapper mapper)
         {
             this.brandRepository = repository;
+            this.mapper = mapper;
         }
 
         public async Task<ICollection<ProductBrandDto>> GetAsync()
         {
             var query = await brandRepository.GetAllAsync();
             query = query.Where(pb => !pb.IsDeleted).ToList();
-            return query.Select(pb => new ProductBrandDto
-            {
-                Id = pb.Id,
-                Description = pb.Description,
-                CreationDate = pb.CreationDate
-            }).ToList();
+
+            #region mapper
+            //return query.Select(pb => new ProductBrandDto
+            //{
+            //    Id = pb.Id,
+            //    Description = pb.Description,
+            //    CreationDate = pb.CreationDate
+            //}).ToList();
+            #endregion
+
+            #region automapper
+            var result = mapper.Map<ICollection<ProductBrandDto>>(query);
+            #endregion
+
+            return result;
         }
 
         public async Task<ProductBrandDto> GetByIdAsync(string id)
         {
             var productBrand = await brandRepository.GetByIdAsync(id);
-            return new ProductBrandDto
-            {
-                Id = productBrand.Id,
-                Description = productBrand.Description,
-                CreationDate = productBrand.CreationDate
-            };
+
+            #region mapper
+            //return new ProductBrandDto
+            //{
+            //    Id = productBrand.Id,
+            //    Description = productBrand.Description,
+            //    CreationDate = productBrand.CreationDate
+            //};
+            #endregion 
+
+            #region automapper
+            return mapper.Map<ProductBrandDto>(productBrand);
+            #endregion
         }
 
-        public async Task<ProductBrandDto> PostAsync(CreateProductBrandDto prodBrandDto)
+        public async Task<ProductBrandDto> InsertAsync(CreateProductBrandDto prodBrandDto)
         {
-            var productBrand = new ProductBrand()
-            {
-                Id = prodBrandDto.Id,
-                Description = prodBrandDto.Description,
-                IsDeleted = false,
-                CreationDate = DateTime.Now,
-                ModifiedDate = DateTime.Now
-            };
-            var result = await brandRepository.PostAsync(productBrand);
+            #region mapper
+            //var productBrand = new ProductBrand()
+            //{
+            //    Id = prodBrandDto.Id,
+            //    Description = prodBrandDto.Description,
+            //    IsDeleted = false,
+            //    CreationDate = DateTime.Now,
+            //    ModifiedDate = DateTime.Now
+            //};
+            #endregion
+
+            #region automapper
+            var productBrand = mapper.Map<ProductBrand>(prodBrandDto);
+            productBrand.CreationDate = DateTime.Now;
+            productBrand.ModifiedDate = DateTime.Now;
+            #endregion
+
+            var result = await brandRepository.InsertAsync(productBrand);
             return await GetByIdAsync(result.Id);
         }
 
-        public async Task<ProductBrandDto> PutAsync(string id, CreateProductBrandDto prodBrandDto)
+        public async Task<ProductBrandDto> UpdateAsync(string id, CreateProductBrandDto prodBrandDto)
         {
             var productBrand = await brandRepository.GetByIdAsync(id);
 
-            productBrand.Description = prodBrandDto.Description;
-            productBrand.ModifiedDate = DateTime.Now;
+            //productBrand.Description = prodBrandDto.Description;
+            //productBrand.ModifiedDate = DateTime.Now;
 
-            var result = await brandRepository.PutAsync(productBrand);
+            #region automapper
+            //productBrand = mapper.Map<ProductBrand>(prodBrandDto);
+            productBrand = mapper.Map(prodBrandDto,productBrand);
+            productBrand.ModifiedDate = DateTime.Now;
+            #endregion
+
+            var result = await brandRepository.UpdateAsync(productBrand);
             return await GetByIdAsync(result.Id);
         }
 
-        public async Task<bool> DeleteAsync(string Id)
+        public async Task<bool> DeleteAsync(string id)
         {
-            return await brandRepository.DeleteAsync(Id);
+            return await brandRepository.DeleteAsync(id);
         }
 
         public async Task<ResultPagination<ProductBrandDto>> GetListAsync(string? search = "", int offset = 0, int limit = 10, string sort = "Description", string order = "asc")
@@ -108,13 +137,19 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             //2.Pagination
             query = query.Skip(offset).Take(limit);
 
+            #region mapper
+            //var items = await query.Select(pb => new ProductBrandDto
+            //{
+            //    Id = pb.Id,
+            //    Description = pb.Description,
+            //    CreationDate = pb.CreationDate
+            //}).ToListAsync();
+            #endregion
 
-            var items = await query.Select(pb => new ProductBrandDto
-            {
-                Id = pb.Id,
-                Description = pb.Description,
-                CreationDate = pb.CreationDate
-            }).ToListAsync();
+            #region automapper
+            var items = mapper.Map<List<ProductBrandDto>>(query);
+            #endregion
+
 
             var resultQuery = new ResultPagination<ProductBrandDto>();
             resultQuery.Total = total;

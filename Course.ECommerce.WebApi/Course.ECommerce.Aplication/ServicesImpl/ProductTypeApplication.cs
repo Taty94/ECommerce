@@ -1,4 +1,5 @@
-﻿using Course.ECommerce.Aplication.Classes;
+﻿using AutoMapper;
+using Course.ECommerce.Aplication.Classes;
 using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities;
@@ -15,56 +16,89 @@ namespace Course.ECommerce.Aplication.ServicesImpl
     public class ProductTypeApplication : IProductTypeApplication
     {
         private readonly IGenericRepository<ProductType> typeRepository;
+        private readonly IMapper mapper;
 
-        public ProductTypeApplication(IGenericRepository<ProductType> repository)
+        public ProductTypeApplication(IGenericRepository<ProductType> repository, IMapper mapper)
         {
             this.typeRepository = repository;
+            this.mapper = mapper;
         }
 
         public async Task<ICollection<ProductTypeDto>> GetAsync()
         {
             var query = await typeRepository.GetAllAsync();
             query = query.Where(pt => !pt.IsDeleted).ToList();
-            return query.Select(pt => new ProductTypeDto
-            {
-                Id = pt.Id,
-                Description = pt.Description,
-                CreationDate = pt.CreationDate
-            }).ToList();
+
+            #region mapper
+            //return query.Select(pt => new ProductTypeDto
+            //{
+            //    Id = pt.Id,
+            //    Description = pt.Description,
+            //    CreationDate = pt.CreationDate
+            //}).ToList();
+            #endregion
+
+            #region automapper
+            return mapper.Map<ICollection<ProductTypeDto>>(query);
+            #endregion
+
+
         }
 
         public async Task<ProductTypeDto> GetByIdAsync(string id)
         {
             var prodType = await typeRepository.GetByIdAsync(id);
-            return new ProductTypeDto
-            {
-                Id = prodType.Id,
-                Description = prodType.Description,
-                CreationDate = prodType.CreationDate
-            };
+
+            #region mapper
+            //return new ProductTypeDto
+            //{
+            //    Id = prodType.Id,
+            //    Description = prodType.Description,
+            //    CreationDate = prodType.CreationDate
+            //};
+            #endregion
+
+            #region automapper
+            return mapper.Map<ProductTypeDto>(prodType);
+            #endregion
         }
 
-        public async Task<ProductTypeDto> PostAsync(CreateProductTypeDto productTypeDto)
+        public async Task<ProductTypeDto> InsertAsync(CreateProductTypeDto productTypeDto)
         {
-            var productType = new ProductType()
-            {
-                Id = productTypeDto.Id,
-                Description = productTypeDto.Description,
-                IsDeleted = false,
-                CreationDate = DateTime.Now,
-                ModifiedDate = DateTime.Now
-            };
-            var result = await typeRepository.PostAsync(productType);
+            #region mapper
+            //var productType = new ProductType()
+            //{
+            //    Id = productTypeDto.Id,
+            //    Description = productTypeDto.Description,
+            //    IsDeleted = false,
+            //    CreationDate = DateTime.Now,
+            //    ModifiedDate = DateTime.Now
+            //};
+            #endregion
+
+            #region automapper
+            var productType = mapper.Map<ProductType>(productTypeDto);
+            productType.CreationDate = DateTime.Now;
+            productType.ModifiedDate = DateTime.Now;
+            #endregion
+
+            var result = await typeRepository.InsertAsync(productType);
             return await GetByIdAsync(result.Id);
         }
 
-        public async Task<ProductTypeDto> PutAsync(string id, CreateProductTypeDto productTypeDto)
+        public async Task<ProductTypeDto> UpdateAsync(string id, CreateProductTypeDto productTypeDto)
         {
             var productType = await typeRepository.GetByIdAsync(id);
-            productType.Description = productTypeDto.Description;
-            productType.ModifiedDate = DateTime.Now;
+            
+            //productType.Description = productTypeDto.Description;
+            //productType.ModifiedDate = DateTime.Now;
 
-            var result = await typeRepository.PutAsync(productType);
+            #region automapper
+            productType = mapper.Map<ProductType>(productTypeDto);
+            productType.ModifiedDate = DateTime.Now;
+            #endregion
+
+            var result = await typeRepository.UpdateAsync(productType);
             return await GetByIdAsync(result.Id);
 
         }
@@ -108,13 +142,14 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             //2.Pagination
             query = query.Skip(offset).Take(limit);
 
+            //var items = await query.Select(pb => new ProductTypeDto
+            //{
+            //    Id = pb.Id,
+            //    Description = pb.Description,
+            //    CreationDate = pb.CreationDate
+            //}).ToListAsync();
 
-            var items = await query.Select(pb => new ProductTypeDto
-            {
-                Id = pb.Id,
-                Description = pb.Description,
-                CreationDate = pb.CreationDate
-            }).ToListAsync();
+            var items = mapper.Map<List<ProductTypeDto>>(query);
 
             var resultQuery = new ResultPagination<ProductTypeDto>();
             resultQuery.Total = total;

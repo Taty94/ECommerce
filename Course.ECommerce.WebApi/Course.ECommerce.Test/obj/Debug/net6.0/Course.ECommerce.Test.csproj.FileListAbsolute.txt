@@ -101,12 +101,12 @@ C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\Course.ECommerce.WebApi\Course.E
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\Course.ECommerce.WebApi\Course.ECommerce.Test\obj\Debug\net6.0\Course.ECommerce.Test.genruntimeconfig.cache
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\Course.ECommerce.WebApi\Course.ECommerce.Test\obj\Debug\net6.0\ref\Course.ECommerce.Test.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\CoverletSourceRootsMapping
-C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\testhost.exe
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\testhost.dll
+C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\testhost.exe
+C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\xunit.runner.reporters.netcoreapp10.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\xunit.runner.utility.netcoreapp10.dll
-C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\Course.ECommerce.Test.deps.json
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\Course.ECommerce.Test.runtimeconfig.json
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Test\bin\Debug\net6.0\Course.ECommerce.Test.dll

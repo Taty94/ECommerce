@@ -20,33 +20,33 @@ namespace Course.ECommerce.WebApi.Controllers
         }
 
         //[HttpGet]
-        //public async Task<ICollection<ProductDto>> GetProductsAsync()
+        //public async Task<ICollection<ProductDto>> GetAsync()
         //{
-        //    return await productApp.GetProductsAsync();
+        //    return await productApp.GetAsync();
         //}
 
         [HttpGet("{id}")]
-        public async Task<ProductDto> GetProductByIdAsync(Guid id)
+        public async Task<ProductDto> GetByIdAsync(Guid id)
         {
-            return await productApp.GetProductByIdAsync(id);
+            return await productApp.GetByIdAsync(id);
         }
 
         [HttpPost]
-        public async Task<ProductDto> PostAsync(CreateProductDto productDto)
+        public async Task<ProductDto> InsertAsync(CreateProductDto productDto)
         {
-            return await productApp.PostAsync(productDto);
+            return await productApp.InsertAsync(productDto);
         }
 
         [HttpPut]
-        public async Task<ProductDto> PutAsync(Guid id, CreateProductDto productDto)
+        public async Task<ProductDto> UpdateAsync(Guid id, CreateProductDto productDto)
         {
-            return await productApp.PutAsync(id,productDto);
+            return await productApp.UpdateAsync(id,productDto);
         }
 
         [HttpDelete("{id}")]
-        public async Task<bool> DeleteAsync(Guid Id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            return await productApp.DeleteAsync(Id);
+            return await productApp.DeleteAsync(id);
         }
 
         [HttpGet("pagination")]

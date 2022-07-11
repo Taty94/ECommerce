@@ -33,13 +33,13 @@ namespace Course.ECommerce.Domain.Repositories
         /// Creacion de un nuevo producto
         /// </summary>
         /// <returns></returns>
-        Task<T> PostAsync(T entity);
+        Task<T> InsertAsync(T entity);
 
         /// <summary>
         /// Modificacion de un  producto
         /// </summary>
         /// <returns></returns>
-        Task<T> PutAsync(T entity);
+        Task<T> UpdateAsync(T entity);
 
         /// <summary>
         /// Eliminar producto

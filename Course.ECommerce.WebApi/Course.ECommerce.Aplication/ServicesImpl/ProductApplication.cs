@@ -24,7 +24,8 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             this.mapper = mapper;
         }
 
-        //public async Task<ICollection<ProductDto>> GetProductsAsync()
+        #region Get Productos sin pagination
+        //public async Task<ICollection<ProductDto>> GetAsync()
         //{
         //    var query = productRepository.GetQueryable();
 
@@ -45,8 +46,9 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         //    return resultQuery;
         //}
+        #endregion
 
-        public async Task<ProductDto> GetProductByIdAsync(Guid Id)
+        public async Task<ProductDto> GetByIdAsync(Guid Id)
         {
             var query = productRepository.GetQueryable();
             query = query.Where(p => p.Id == Id);
@@ -75,11 +77,12 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             return await resultQuery.SingleOrDefaultAsync();
         }
 
-        public async Task<ProductDto> PostAsync(CreateProductDto productDto)
+        public async Task<ProductDto> InsertAsync(CreateProductDto productDto)
         {
             #region mappear
             //var product = new Product()
             //{
+            ////    Id = Guid.NewGuid(),
             //    Name = productDto.Name,
             //    Price = productDto.Price,
             //    Description = productDto.Description,
@@ -91,26 +94,33 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
             var product = mapper.Map<Product>(productDto);
             product.CreationDate = DateTime.Now;
+            product.ModifiedDate = DateTime.Now;
 
-            var result = await productRepository.PostAsync(product);
-            return await GetProductByIdAsync(result.Id);
+            var result = await productRepository.InsertAsync(product);
+            return await GetByIdAsync(result.Id);
         }
 
-        public async Task<ProductDto> PutAsync(Guid id, CreateProductDto productDto)
+        public async Task<ProductDto> UpdateAsync(Guid id, CreateProductDto productDto)
         {
             var product = await productRepository.GetByIdAsync(id);
-            
+
             #region mappear
-            product.Name = productDto.Name;
-            product.Price = productDto.Price;
-            product.Description = productDto.Description;
-            product.ProductBrandId = productDto.ProductBrandId;
-            product.ProductTypeId = productDto.ProductTypeId;
+            //product.Name = productDto.Name;
+            //product.Price = productDto.Price;
+            //product.Description = productDto.Description;
+            //product.ProductBrandId = productDto.ProductBrandId;
+            //product.ProductTypeId = productDto.ProductTypeId;
+            //product.ModifiedDate = DateTime.Now;
+            #endregion
+
+            #region automapper
+            //product = mapper.Map<Product>(productDto);
+            product = mapper.Map(productDto,product);
             product.ModifiedDate = DateTime.Now;
             #endregion
 
-            var result = await productRepository.PutAsync(product);
-            return await GetProductByIdAsync(result.Id);
+            var result = await productRepository.UpdateAsync(product);
+            return await GetByIdAsync(result.Id);
              
         }
 
@@ -119,7 +129,7 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             return await productRepository.DeleteAsync(Id);
         }
 
-        public async Task<ResultPagination<ProductDto>> GetListAsync(string? search = "", int offset = 0, int limit = 10, string sort = "Name", string order = "asc")
+        public async Task<ResultPagination<ProductDto>> GetListAsync(string? search = "", int offset = 0, int limit = 3, string sort = "Name", string order = "asc")
         {
             var query = productRepository.GetQueryable();
 

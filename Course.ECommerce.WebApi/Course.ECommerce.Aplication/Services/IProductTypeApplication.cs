@@ -8,11 +8,9 @@ namespace Course.ECommerce.Aplication.Services
     {
         Task<ICollection<ProductTypeDto>> GetAsync();
         Task<ProductTypeDto> GetByIdAsync(string id);
-
-        Task<ProductTypeDto> PostAsync(CreateProductTypeDto productTypeDto);
-        Task<ProductTypeDto> PutAsync(string id, CreateProductTypeDto productTypeDto);
+        Task<ProductTypeDto> InsertAsync(CreateProductTypeDto productTypeDto);
+        Task<ProductTypeDto> UpdateAsync(string id, CreateProductTypeDto productTypeDto);
         Task<bool> DeleteAsync(string id);
-
         Task<ResultPagination<ProductTypeDto>> GetListAsync(string? search = "", int offset = 0, int limit = 10, string sort = "Description", string order = "asc");
     }
 }

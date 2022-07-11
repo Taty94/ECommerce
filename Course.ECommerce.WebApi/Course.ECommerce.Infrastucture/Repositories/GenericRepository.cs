@@ -33,14 +33,14 @@ namespace Course.ECommerce.Infrastructure.Repositories
             return await context.Set<T>().FindAsync(Id);
         }
 
-        public async Task<T> PostAsync(T entity)
+        public async Task<T> InsertAsync(T entity)
         {
             await context.AddAsync(entity);
             await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task<T> PutAsync(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
             context.Update(entity);
             await context.SaveChangesAsync();

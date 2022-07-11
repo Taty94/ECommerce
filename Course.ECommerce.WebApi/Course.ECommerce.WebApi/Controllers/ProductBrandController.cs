@@ -32,15 +32,15 @@ namespace Course.ECommerce.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ProductBrandDto> PostAsync(CreateProductBrandDto productBrandDto)
+        public async Task<ProductBrandDto> InsertAsync(CreateProductBrandDto productBrandDto)
         {
-            return await productBrandApp.PostAsync(productBrandDto);
+            return await productBrandApp.InsertAsync(productBrandDto);
         }
 
         [HttpPut]
-        public async Task<ProductBrandDto> PutAsync(string id, CreateProductBrandDto productBrandDto)
+        public async Task<ProductBrandDto> UpdateAsync(string id, CreateProductBrandDto productBrandDto)
         {
-            return await productBrandApp.PutAsync(id, productBrandDto);
+            return await productBrandApp.UpdateAsync(id, productBrandDto);
         }
 
         [HttpDelete("{id}")]
