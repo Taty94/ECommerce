@@ -16,12 +16,6 @@ namespace Course.ECommerce.WebApi.Controllers
     public class TokenController : ControllerBase
     {
         private readonly JwtConfiguration jwtConfiguration;
-        private static readonly User[] usuarios = new[]
-        {
-            new User{UserName="Tatiana", Role=new Role[] {Role.Admin}, Licencia=true, Ecuatoriano=true, CodigoSeguro="EC12345" },
-            new User{UserName="Juan", Role=new Role[] {Role.User, Role.Soporte} , Licencia=false, Ecuatoriano=true, CodigoSeguro="EC09876" },
-            new User{UserName="Pedro", Role=new Role[] {Role.Invitado},Licencia=false, Ecuatoriano=false, CodigoSeguro="EC65789"  },
-        };
 
         public TokenController(IOptions<JwtConfiguration> options)
         {
@@ -34,33 +28,22 @@ namespace Course.ECommerce.WebApi.Controllers
         {
 
             //1. Validar User.
-            //var userTest = "foo";
-            var user = usuarios.Where(u => u.UserName.Equals(input.UserName)).SingleOrDefault();
-            if (!user.UserName.Equals(input.UserName) || input.Password != "123")
+            var userTest = "foo";
+            if (input.UserName!= userTest || input.Password != "123")
             {
                 throw new AuthenticationException("User or Passowrd incorrect!");
             }
 
-
             //2. Generar claims
             //create claims details based on the user information
-            var claims = new List<Claim>();
-
-            var usr = usuarios.Where(u => u.UserName.Equals(input.UserName)).SingleOrDefault();
-
-            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, usr.UserName));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()));
-
-            foreach(var role in usr.Role)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
-            }
-
-            claims.Add(new Claim("Ecuatoriano", usr.Ecuatoriano.ToString()));
-            claims.Add(new Claim("Licencia", usr.Licencia.ToString()));
-            claims.Add(new Claim("Seguro", usr.CodigoSeguro));
-
+            var claims = new[] {
+                        new Claim(JwtRegisteredClaimNames.Sub, userTest),
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                        new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+                        new Claim("UserName", userTest),
+                        //new Claim("Email", user.Email)
+                        //Other...
+                    };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfiguration.Key));
             var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

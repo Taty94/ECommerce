@@ -22,7 +22,7 @@ namespace Course.ECommerce.Aplication.ServicesImpl
         public async Task<ICollection<ProductBrandDto>> GetAsync()
         {
             var query = await brandRepository.GetAllAsync();
-            query = query.Where(pb => !pb.IsDeleted).ToList();
+            //query = query.Where(pb => !pb.IsDeleted).ToList();
 
             #region mapper
             //return query.Select(pb => new ProductBrandDto

@@ -24,6 +24,19 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             this.mapper = mapper;
         }
 
+        public async Task<ICollection<ProductDto>> GetAllAsync()
+        {
+            var products = productRepository.GetQueryable();
+            #region automapper
+            var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<Product, ProductDto>()
+                                .ForMember(p => p.ProductBrand, x => x.MapFrom(org => org.ProductBrand.Description))
+                                .ForMember(p => p.ProductType, x => x.MapFrom(org => org.ProductType.Description)));
+            var resultQuery = products.ProjectTo<ProductDto>(configuration);
+            #endregion
+
+            return await resultQuery.ToListAsync();
+        }
+
         public async Task<ProductDto> GetByIdAsync(Guid Id)
         {
             var query = productRepository.GetQueryable();

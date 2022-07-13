@@ -8,7 +8,7 @@ namespace Course.ECommerce.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize (Roles ="Admin, Soporte")]
+    //[Authorize]
     public class ProductController : ControllerBase, IProductApplication
     {
         private readonly IProductApplication productApp;
@@ -18,14 +18,12 @@ namespace Course.ECommerce.WebApi.Controllers
             this.productApp = productApp;
         }
 
-        //[HttpGet]
-        //public async Task<ICollection<ProductDto>> GetAsync()
-        //{
-        //    return await productApp.GetAsync();
-        //}
+        [HttpGet]
+        public async Task<ICollection<ProductDto>> GetAllAsync()
+        {
+            return await productApp.GetAllAsync();
+        }
 
-        //[Authorize(Roles = "Admin,Soporte,User,Ivitado")]
-        [Authorize(Policy = "EsAdminEc")]
         [HttpGet("{id}")]
         public async Task<ProductDto> GetByIdAsync(Guid id)
         {

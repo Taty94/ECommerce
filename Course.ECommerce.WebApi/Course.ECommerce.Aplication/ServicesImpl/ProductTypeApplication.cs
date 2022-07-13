@@ -27,7 +27,7 @@ namespace Course.ECommerce.Aplication.ServicesImpl
         public async Task<ICollection<ProductTypeDto>> GetAsync()
         {
             var query = await typeRepository.GetAllAsync();
-            query = query.Where(pt => !pt.IsDeleted).ToList();
+            //query = query.Where(pt => !pt.IsDeleted).ToList();
 
             #region mapper
             //return query.Select(pt => new ProductTypeDto

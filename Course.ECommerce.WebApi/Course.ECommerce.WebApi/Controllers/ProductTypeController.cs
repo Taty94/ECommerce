@@ -1,6 +1,7 @@
 ﻿using Course.ECommerce.Aplication.Classes;
 using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Course.ECommerce.WebApi.Controllers
@@ -8,7 +9,7 @@ namespace Course.ECommerce.WebApi.Controllers
 
     [ApiController]
     [Route("api/[controller]")]
-
+    //[Authorize]
     public class ProductTypeController : ControllerBase, IProductTypeApplication
     {
         private readonly IProductTypeApplication productTypeApp;

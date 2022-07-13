@@ -2,6 +2,7 @@
 using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Course.ECommerce.WebApi.Controllers
@@ -9,7 +10,7 @@ namespace Course.ECommerce.WebApi.Controllers
 
     [ApiController]
     [Route("api/[controller]")]
-
+    //[Authorize]
     public class ProductBrandController : ControllerBase, IProductBrandApplication
     {
         private readonly IProductBrandApplication productBrandApp;

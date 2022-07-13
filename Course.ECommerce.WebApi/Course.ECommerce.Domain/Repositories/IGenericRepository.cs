@@ -18,14 +18,14 @@ namespace Course.ECommerce.Domain.Repositories
         /// <summary>
         /// Obtener un objeto por su clave primaria
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        Task<T> GetByIdAsync(string Id);
+        Task<T> GetByIdAsync(string id);
 
         /// <summary>
         /// Sobrecarga para que obtener por id me reciba un tipo Guid como parametro
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         Task<T> GetByIdAsync(Guid Id);
 
@@ -45,13 +45,13 @@ namespace Course.ECommerce.Domain.Repositories
         /// Eliminar producto
         /// </summary>
         /// <returns></returns>
-        Task<bool> DeleteAsync(Guid Id);
+        Task<bool> DeleteAsync(Guid id);
 
         /// <summary>
         /// Eliminar producto
         /// </summary>
         /// <returns></returns>
-        Task<bool> DeleteAsync(string Id);
+        Task<bool> DeleteAsync(string id);
 
         /// <summary>
         /// Retorna la consulta cuando la requiero

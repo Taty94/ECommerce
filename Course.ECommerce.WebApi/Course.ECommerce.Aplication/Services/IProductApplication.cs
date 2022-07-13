@@ -5,6 +5,7 @@ namespace Course.ECommerce.Aplication.Services
 {
     public interface IProductApplication
     {
+        Task<ICollection<ProductDto>> GetAllAsync();
         Task<ProductDto> GetByIdAsync(Guid Id);
         Task<ProductDto> InsertAsync(CreateProductDto product);
         Task<ProductDto> UpdateAsync(Guid id, CreateProductDto product);

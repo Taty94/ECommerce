@@ -23,14 +23,14 @@ namespace Course.ECommerce.Infrastructure.Repositories
             return await context.Set<T>().ToListAsync();//el set le dice a que tabla o entidad va a consultar
         }
 
-        public virtual async Task<T> GetByIdAsync(string Id)
+        public virtual async Task<T> GetByIdAsync(string id)
         {
-            return await context.Set<T>().FindAsync(Id);
+            return await context.Set<T>().FindAsync(id);
         }
 
-        public async Task<T> GetByIdAsync(Guid Id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
-            return await context.Set<T>().FindAsync(Id);
+            return await context.Set<T>().FindAsync(id);
         }
 
         public async Task<T> InsertAsync(T entity)
@@ -47,12 +47,15 @@ namespace Course.ECommerce.Infrastructure.Repositories
             return entity;
         }
 
-        public async Task<bool> DeleteAsync(Guid Id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            var entity = await context.Set<T>().FindAsync(Id);
+            var entity = await context.Set<T>().FindAsync(id);
             if(entity != null)
             {
-                context.Set<T>().Remove(entity);
+                entity.IsDeleted = true;
+                entity.ModifiedDate = DateTime.Now;
+                //context.Set<T>().Remove(entity);
+                context.Set<T>().Update(entity);
                 await context.SaveChangesAsync();
                 return true;
             }
@@ -63,9 +66,9 @@ namespace Course.ECommerce.Infrastructure.Repositories
             
         }
 
-        public async Task<bool> DeleteAsync(string Id)
+        public async Task<bool> DeleteAsync(string id)
         {
-            var entity = await context.Set<T>().FindAsync(Id);
+            var entity = await context.Set<T>().FindAsync(id);
             if (entity != null)
             {
                 entity.IsDeleted = true;
