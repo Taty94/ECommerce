@@ -24,30 +24,6 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             this.mapper = mapper;
         }
 
-        #region Get Productos sin pagination
-        //public async Task<ICollection<ProductDto>> GetAsync()
-        //{
-        //    var query = productRepository.GetQueryable();
-
-        //    #region mappear Dto
-        //    query = query.Where(p => !p.IsDeleted);
-        //    var resultQuery = await query.Select(p=> new ProductDto
-        //                        {
-        //                            Id = p.Id,
-        //                            Name = p.Name,
-        //                            Price = p.Price,
-        //                            Description = p.Description,
-        //                            ProductBrand = p.ProductBrand.Description,
-        //                            ProductType = p.ProductType.Description,
-        //                            CreationDate = p.CreationDate,
-        //                            ModifiedDate = p.ModifiedDate
-        //                        }).ToListAsync();
-        //    #endregion
-
-        //    return resultQuery;
-        //}
-        #endregion
-
         public async Task<ProductDto> GetByIdAsync(Guid Id)
         {
             var query = productRepository.GetQueryable();

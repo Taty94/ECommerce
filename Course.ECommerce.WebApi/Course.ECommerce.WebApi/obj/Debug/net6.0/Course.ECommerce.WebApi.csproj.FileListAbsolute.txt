@@ -75,6 +75,7 @@ C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebAp
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll

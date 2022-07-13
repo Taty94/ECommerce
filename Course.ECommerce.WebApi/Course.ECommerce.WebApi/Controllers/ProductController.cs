@@ -1,15 +1,14 @@
 ﻿using Course.ECommerce.Aplication.Classes;
 using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
-using Course.ECommerce.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Course.ECommerce.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-
+    [Authorize (Roles ="Admin, Soporte")]
     public class ProductController : ControllerBase, IProductApplication
     {
         private readonly IProductApplication productApp;
@@ -25,6 +24,8 @@ namespace Course.ECommerce.WebApi.Controllers
         //    return await productApp.GetAsync();
         //}
 
+        //[Authorize(Roles = "Admin,Soporte,User,Ivitado")]
+        [Authorize(Policy = "EsAdminEc")]
         [HttpGet("{id}")]
         public async Task<ProductDto> GetByIdAsync(Guid id)
         {
@@ -49,11 +50,11 @@ namespace Course.ECommerce.WebApi.Controllers
             return await productApp.DeleteAsync(id);
         }
 
+        
         [HttpGet("pagination")]
         public async Task<ResultPagination<ProductDto>> GetListAsync(string? search = "", int offset = 0, int limit = 3, string sort = "Name", string order = "asc")
         {
             return await productApp.GetListAsync(search,offset,limit,sort,order);
-
         }
     }
 }
