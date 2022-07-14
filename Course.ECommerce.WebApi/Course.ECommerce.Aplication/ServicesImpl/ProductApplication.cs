@@ -6,6 +6,7 @@ using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities;
 using Course.ECommerce.Domain.Repositories;
 using Course.ECommerce.Infrastructure;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 namespace Course.ECommerce.Aplication.ServicesImpl
@@ -17,11 +18,13 @@ namespace Course.ECommerce.Aplication.ServicesImpl
     {
         private readonly IGenericRepository<Product> productRepository;
         private readonly IMapper mapper;
+        private readonly IValidator<CreateProductDto> validator;
 
-        public ProductApplication(IGenericRepository<Product> repository, IMapper mapper)
+        public ProductApplication(IGenericRepository<Product> repository, IMapper mapper, IValidator<CreateProductDto> validator)
         {
             this.productRepository = repository;
             this.mapper = mapper;
+            this.validator = validator;
         }
 
         public async Task<ICollection<ProductDto>> GetAllAsync()
@@ -62,12 +65,24 @@ namespace Course.ECommerce.Aplication.ServicesImpl
                                 .ForMember(p => p.ProductType, x => x.MapFrom(org => org.ProductType.Description)));
             var resultQuery = query.ProjectTo<ProductDto>(configuration);
             #endregion
-
             return await resultQuery.SingleOrDefaultAsync();
         }
 
         public async Task<ProductDto> InsertAsync(CreateProductDto productDto)
         {
+            #region validator
+            var isValid = await validator.ValidateAsync(productDto, options =>
+            {
+                options.ThrowOnFailures();
+                options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
+            });
+
+            //foreach (var error in isValid.Errors)
+            //{
+            //    throw new ValidationException(error.ErrorMessage);
+            //}
+            #endregion
+
             #region mappear
             //var product = new Product()
             //{
@@ -91,6 +106,15 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<ProductDto> UpdateAsync(Guid id, CreateProductDto productDto)
         {
+            #region validator
+            var isValid = await validator.ValidateAsync(productDto, options =>
+            {
+                options.ThrowOnFailures();
+                options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
+            });
+
+            #endregion
+
             var product = await productRepository.GetByIdAsync(id);
 
             #region mappear

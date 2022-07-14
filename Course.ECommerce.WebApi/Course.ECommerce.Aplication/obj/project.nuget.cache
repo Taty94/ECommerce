@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "k6D+FRJFEN2CUOc0SQhfC8IOugeBsd4fuWtrLA/qNPPc+6+xZZ4WYLyspvmV9hF4HodPcQUeCCqYnTdXwiQMPA==",
+  "dgSpecHash": "5prE2Uw+S9aOM+/dlf0IaasTUwfgqRtdRa8/pYiDsEZ3F7JE8tGyyhSCegrjrNPC+KzwPreS7Pz52P8IGxMHBQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Aplication\\Course.ECommerce.Aplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tatiana\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\Tatiana\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
+    "C:\\Users\\Tatiana\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.1.0\\fluentvalidation.dependencyinjectionextensions.11.1.0.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Tatiana\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

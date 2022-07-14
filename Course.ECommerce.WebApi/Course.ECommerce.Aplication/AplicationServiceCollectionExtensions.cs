@@ -1,13 +1,10 @@
-﻿using Course.ECommerce.Aplication.Services;
+﻿using Course.ECommerce.Aplication.Helpers;
+using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Aplication.ServicesImpl;
+using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Course.ECommerce.Aplication
 {
@@ -22,6 +19,9 @@ namespace Course.ECommerce.Aplication
             //automapper
             //agrega todos los profiles que existen el este proyecto
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            //validaciones
+            services.AddValidatorsFromAssemblyContaining<CreateProductDtoValidator>();
 
             return services;
         }

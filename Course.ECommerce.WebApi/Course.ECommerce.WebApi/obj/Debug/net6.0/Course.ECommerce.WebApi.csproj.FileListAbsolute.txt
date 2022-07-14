@@ -135,3 +135,5 @@ C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebAp
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\obj\Debug\net6.0\Course.ECommerce.WebApi.pdb
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\obj\Debug\net6.0\Course.ECommerce.WebApi.genruntimeconfig.cache
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\obj\Debug\net6.0\ref\Course.ECommerce.WebApi.dll
+C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.WebApi\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
