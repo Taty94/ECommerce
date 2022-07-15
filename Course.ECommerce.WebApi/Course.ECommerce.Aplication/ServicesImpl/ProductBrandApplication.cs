@@ -4,6 +4,7 @@ using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities;
 using Course.ECommerce.Domain.Repositories;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 namespace Course.ECommerce.Aplication.ServicesImpl
@@ -12,11 +13,13 @@ namespace Course.ECommerce.Aplication.ServicesImpl
     {
         private readonly IGenericRepository<ProductBrand> brandRepository;
         private readonly IMapper mapper;
+        private readonly IValidator<CreateProductBrandDto> validator;
 
-        public ProductBrandApplication(IGenericRepository<ProductBrand> repository, IMapper mapper)
+        public ProductBrandApplication(IGenericRepository<ProductBrand> repository, IMapper mapper, IValidator<CreateProductBrandDto> validator)
         {
             this.brandRepository = repository;
             this.mapper = mapper;
+            this.validator = validator;
         }
 
         public async Task<ICollection<ProductBrandDto>> GetAsync()
@@ -60,6 +63,10 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<ProductBrandDto> InsertAsync(CreateProductBrandDto prodBrandDto)
         {
+            #region validator
+            await validator.ValidateAndThrowAsync(prodBrandDto);
+            #endregion
+
             #region mapper
             //var productBrand = new ProductBrand()
             //{

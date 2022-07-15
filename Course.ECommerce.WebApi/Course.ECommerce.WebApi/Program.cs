@@ -2,6 +2,7 @@ using Course.ECommerce.Aplication;
 using Course.ECommerce.Domain;
 using Course.ECommerce.Infrastructure;
 using Course.ECommerce.WebApi.Classes;
+using Course.ECommerce.WebApi.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -10,7 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    //Aplicar filter globalmente a todos los controller
+    options.Filters.Add<ApiExceptionFilterAttribute>();
+});
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

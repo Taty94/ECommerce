@@ -21,7 +21,8 @@ namespace Course.ECommerce.Aplication
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             //validaciones
-            services.AddValidatorsFromAssemblyContaining<CreateProductDtoValidator>();
+            services.AddValidatorsFromAssemblyContaining<CreateProductDtoValidator>(); //cualquier clase, tipo pertenece a un ensamblador
+            //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());//ambas buscan todos los validadores y los inyectan
 
             return services;
         }

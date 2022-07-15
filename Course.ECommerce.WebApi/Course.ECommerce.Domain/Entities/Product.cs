@@ -11,5 +11,10 @@ namespace Course.ECommerce.Domain.Entities
         public ProductType? ProductType { get; set; }
         public string ProductBrandId { get; set; }
         public ProductBrand? ProductBrand { get; set; }
+
+        public Product()
+        {
+            this.CreationDate = DateTime.Now;
+        }
     }
 }

@@ -40,10 +40,17 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             return await resultQuery.ToListAsync();
         }
 
-        public async Task<ProductDto> GetByIdAsync(Guid Id)
+        public async Task<ProductDto> GetByIdAsync(Guid id)
         {
             var query = productRepository.GetQueryable();
-            query = query.Where(p => p.Id == Id);
+            query = query.Where(p => p.Id == id);
+            
+            #region NotFoundException
+            if (query.SingleOrDefaultAsync().Result == null)
+            {
+                throw  new NotFoundException($"Producto con Id:{id} no existe");
+            }
+            #endregion
 
             #region mappear
             //var resultQuery = await query.Select(p => new ProductDto
@@ -71,16 +78,12 @@ namespace Course.ECommerce.Aplication.ServicesImpl
         public async Task<ProductDto> InsertAsync(CreateProductDto productDto)
         {
             #region validator
-            var isValid = await validator.ValidateAsync(productDto, options =>
-            {
-                options.ThrowOnFailures();
-                options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
-            });
-
-            //foreach (var error in isValid.Errors)
+            //var isValid = await validator.ValidateAsync(productDto, options =>
             //{
-            //    throw new ValidationException(error.ErrorMessage);
-            //}
+            //    options.ThrowOnFailures();
+            //    options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
+            //});
+            await validator.ValidateAndThrowAsync(productDto);
             #endregion
 
             #region mappear
@@ -96,9 +99,11 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             //};
             #endregion
 
+            #region automapper
             var product = mapper.Map<Product>(productDto);
             product.CreationDate = DateTime.Now;
             product.ModifiedDate = DateTime.Now;
+            #endregion
 
             var result = await productRepository.InsertAsync(product);
             return await GetByIdAsync(result.Id);
@@ -107,15 +112,22 @@ namespace Course.ECommerce.Aplication.ServicesImpl
         public async Task<ProductDto> UpdateAsync(Guid id, CreateProductDto productDto)
         {
             #region validator
-            var isValid = await validator.ValidateAsync(productDto, options =>
-            {
-                options.ThrowOnFailures();
-                options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
-            });
-
+            //var isValid = await validator.ValidateAsync(productDto, options =>
+            //{
+            //    options.ThrowOnFailures();
+            //    options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
+            //});
+            await validator.ValidateAndThrowAsync(productDto);
             #endregion
 
             var product = await productRepository.GetByIdAsync(id);
+
+            #region NotFoundException
+            if (product == null)
+            {
+                throw new NotFoundException($"Producto con Id:{id} no se modificó, no existe");
+            }
+            #endregion
 
             #region mappear
             //product.Name = productDto.Name;
@@ -137,9 +149,11 @@ namespace Course.ECommerce.Aplication.ServicesImpl
              
         }
 
-        public async Task<bool> DeleteAsync(Guid Id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            return await productRepository.DeleteAsync(Id);
+            var isFound = await productRepository.DeleteAsync(id);
+            if(!isFound) throw new NotFoundException($"Producto con Id:{id} , no se eliminó, no existe");
+            return isFound;
         }
 
         public async Task<ResultPagination<ProductDto>> GetListAsync(string? search = "", int offset = 0, int limit = 3, string sort = "Name", string order = "asc")
