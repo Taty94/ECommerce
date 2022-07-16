@@ -44,6 +44,8 @@ builder.Services.AddDomain(builder.Configuration);
 builder.Services.AddAplication(builder.Configuration);
 builder.Services.AddInfrastructure(builder.Configuration);
 
+// Add CORS
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -55,6 +57,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Politica global CORS Middleware
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // Permitir cualquier origen
+    .AllowCredentials());
 
 //2. registra el middleware que usa los esquemas de autenticación registrados
 //el middleware autentificacion debe estar antes de cualquier componente que requiere autentificacion

@@ -22,7 +22,7 @@ namespace Course.ECommerce.Aplication
 
             //validaciones
             services.AddValidatorsFromAssemblyContaining<CreateProductDtoValidator>(); //cualquier clase, tipo pertenece a un ensamblador
-            //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());//ambas buscan todos los validadores y los inyectan
+                                                                                       //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());//ambas buscan todos los validadores y los inyectan
 
             return services;
         }
