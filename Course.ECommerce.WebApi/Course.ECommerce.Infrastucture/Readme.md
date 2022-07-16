@@ -1,6 +1,6 @@
-﻿#AGREGAR MIGRACION
+﻿#Una nueva linea
+#AGREGAR MIGRACION
 add-migration Inicial -Context ECommerceDbContext
-
 #APLICAR MIGRACION
 Update-DataBase -Context ECommerceDbContext
 #Quitar MIGRATION

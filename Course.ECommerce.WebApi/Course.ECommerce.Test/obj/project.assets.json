@@ -6143,19 +6143,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tatiana\\.nuget\\packages\\": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Test\\Course.ECommerce.Test.csproj",
+      "projectUniqueName": "C:\\TATIANA\\Banco Pichincha\\Final ECommerce\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Test\\Course.ECommerce.Test.csproj",
       "projectName": "Course.ECommerce.Test",
-      "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Test\\Course.ECommerce.Test.csproj",
-      "packagesPath": "C:\\Users\\Tatiana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Test\\obj\\",
+      "projectPath": "C:\\TATIANA\\Banco Pichincha\\Final ECommerce\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Test\\Course.ECommerce.Test.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "C:\\TATIANA\\Banco Pichincha\\Final ECommerce\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Tatiana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6169,8 +6169,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
-              "projectPath": "C:\\Users\\Tatiana\\Desktop\\BACKEND\\Semana3\\Clase4\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj"
+            "C:\\TATIANA\\Banco Pichincha\\Final ECommerce\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj": {
+              "projectPath": "C:\\TATIANA\\Banco Pichincha\\Final ECommerce\\ECommerce\\Course.ECommerce.WebApi\\Course.ECommerce.Domain\\Course.ECommerce.Domain.csproj"
             }
           }
         }
@@ -6221,7 +6221,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
