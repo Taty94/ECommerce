@@ -101,7 +101,6 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
             #region automapper
             var product = mapper.Map<Product>(productDto);
-            product.CreationDate = DateTime.Now;
             product.ModifiedDate = DateTime.Now;
             #endregion
 

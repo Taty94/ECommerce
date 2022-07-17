@@ -32,3 +32,20 @@ C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebAp
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\refint\Course.ECommerce.Aplication.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.pdb
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\ref\Course.ECommerce.Aplication.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\bin\Debug\net6.0\Course.ECommerce.Aplication.deps.json
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\bin\Debug\net6.0\Course.ECommerce.Aplication.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\bin\Debug\net6.0\Course.ECommerce.Aplication.pdb
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\bin\Debug\net6.0\Course.ECommerce.Domain.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\bin\Debug\net6.0\Course.ECommerce.Infrastructure.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\bin\Debug\net6.0\Course.ECommerce.Domain.pdb
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\bin\Debug\net6.0\Course.ECommerce.Infrastructure.pdb
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.csproj.AssemblyReference.cache
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.AssemblyInfoInputs.cache
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.AssemblyInfo.cs
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.csproj.CoreCompileInputs.cache
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.csproj.CopyComplete
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\refint\Course.ECommerce.Aplication.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\Course.ECommerce.Aplication.pdb
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Aplication\obj\Debug\net6.0\ref\Course.ECommerce.Aplication.dll

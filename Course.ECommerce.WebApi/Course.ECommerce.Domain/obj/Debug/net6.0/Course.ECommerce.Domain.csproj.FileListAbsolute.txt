@@ -22,3 +22,15 @@ C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebAp
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\refint\Course.ECommerce.Domain.dll
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\Course.ECommerce.Domain.pdb
 C:\Users\Tatiana\Desktop\BACKEND\Semana3\Clase4\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\ref\Course.ECommerce.Domain.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\bin\Debug\net6.0\Course.ECommerce.Domain.deps.json
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\bin\Debug\net6.0\Course.ECommerce.Domain.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\bin\Debug\net6.0\Course.ECommerce.Domain.pdb
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\Course.ECommerce.Domain.csproj.AssemblyReference.cache
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\Course.ECommerce.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\Course.ECommerce.Domain.AssemblyInfoInputs.cache
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\Course.ECommerce.Domain.AssemblyInfo.cs
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\Course.ECommerce.Domain.csproj.CoreCompileInputs.cache
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\Course.ECommerce.Domain.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\refint\Course.ECommerce.Domain.dll
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\Course.ECommerce.Domain.pdb
+C:\TATIANA\Banco Pichincha\Final ECommerce\ECommerce\Course.ECommerce.WebApi\Course.ECommerce.Domain\obj\Debug\net6.0\ref\Course.ECommerce.Domain.dll

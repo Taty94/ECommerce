@@ -1,6 +1,8 @@
 ﻿using Course.ECommerce.Aplication.Helpers;
 using Course.ECommerce.Aplication.Services;
+using Course.ECommerce.Aplication.Services.BasketService;
 using Course.ECommerce.Aplication.ServicesImpl;
+using Course.ECommerce.Aplication.ServicesImpl.BasketServiceImpl;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +17,7 @@ namespace Course.ECommerce.Aplication
             services.AddTransient(typeof(IProductApplication), typeof(ProductApplication));
             services.AddTransient(typeof(IProductTypeApplication), typeof(ProductTypeApplication));
             services.AddTransient(typeof(IProductBrandApplication), typeof(ProductBrandApplication));
-
+            services.AddTransient(typeof(IBasketApplication), typeof(BasketApplication));
             //automapper
             //agrega todos los profiles que existen el este proyecto
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
