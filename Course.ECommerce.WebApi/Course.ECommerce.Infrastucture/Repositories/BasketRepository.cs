@@ -1,4 +1,4 @@
-﻿using Course.ECommerce.Domain.Entities.Basket;
+﻿using Course.ECommerce.Domain.Entities.BasketClasses;
 using Course.ECommerce.Domain.Repositories;
 using StackExchange.Redis;
 using System.Text.Json;

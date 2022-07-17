@@ -1,5 +1,5 @@
-﻿using Course.ECommerce.Aplication.Services.BasketService;
-using Course.ECommerce.Domain.Entities.Basket;
+﻿using Course.ECommerce.Aplication.Services;
+using Course.ECommerce.Domain.Entities.BasketClasses;
 using Course.ECommerce.Domain.Repositories;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Course.ECommerce.Aplication.ServicesImpl.BasketServiceImpl
+namespace Course.ECommerce.Aplication.ServicesImpl
 {
     public class BasketApplication : IBasketApplication
     {
@@ -21,13 +21,6 @@ namespace Course.ECommerce.Aplication.ServicesImpl.BasketServiceImpl
         public async Task<Basket> GetBasketAsync(string basketId)
         {
             var basket = await basketRepository.GetBasketAsync(basketId);
-
-            //#region NotFoundException
-            //if (basket == null)
-            //{
-            //    throw new NotFoundException($"Carrito con Id:{basketId} no existe");
-            //}
-            //#endregion
 
             return basket ?? new Basket(basketId);
         }

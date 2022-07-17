@@ -1,8 +1,8 @@
-﻿using Course.ECommerce.Aplication.Services.BasketService;
-using Microsoft.AspNetCore.Http;
+﻿using Course.ECommerce.Aplication.Services;
+using Course.ECommerce.Domain.Entities.BasketClasses;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Course.ECommerce.WebApi.Controllers.Basket
+namespace Course.ECommerce.WebApi.Controllers.BasketController
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,13 +16,13 @@ namespace Course.ECommerce.WebApi.Controllers.Basket
         }
 
         [HttpGet]
-        public async Task<Domain.Entities.Basket.Basket> GetBasketAsync(string basketId)
+        public async Task<Basket> GetBasketAsync(string basketId)
         {
             return await basketApp.GetBasketAsync(basketId);
         }
 
         [HttpPost]
-        public async Task<Domain.Entities.Basket.Basket> UpdateBasketAsync(Domain.Entities.Basket.Basket basket)
+        public async Task<Basket> UpdateBasketAsync(Basket basket)
         {
             return await basketApp.UpdateBasketAsync(basket);
         }

@@ -39,6 +39,119 @@ namespace Course.ECommerce.Infrastructure.Migrations
                     b.ToTable("Catalogue");
                 });
 
+            modelBuilder.Entity("Course.ECommerce.Domain.Entities.Order.Delivery", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DeliveryMethod", (string)null);
+                });
+
+            modelBuilder.Entity("Course.ECommerce.Domain.Entities.Order.ItemOrdered", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid?>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantiy")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("ItemOrdered", (string)null);
+                });
+
+            modelBuilder.Entity("Course.ECommerce.Domain.Entities.Order.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTimeOffset>("Date")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("DeliveryMethodId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeliveryMethodId");
+
+                    b.ToTable("Order", (string)null);
+                });
+
             modelBuilder.Entity("Course.ECommerce.Domain.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")
@@ -134,6 +247,25 @@ namespace Course.ECommerce.Infrastructure.Migrations
                     b.ToTable("ProductType", (string)null);
                 });
 
+            modelBuilder.Entity("Course.ECommerce.Domain.Entities.Order.ItemOrdered", b =>
+                {
+                    b.HasOne("Course.ECommerce.Domain.Entities.Order.Order", null)
+                        .WithMany("ItemsOrdered")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Course.ECommerce.Domain.Entities.Order.Order", b =>
+                {
+                    b.HasOne("Course.ECommerce.Domain.Entities.Order.Delivery", "DeliveryMethod")
+                        .WithMany()
+                        .HasForeignKey("DeliveryMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DeliveryMethod");
+                });
+
             modelBuilder.Entity("Course.ECommerce.Domain.Entities.Product", b =>
                 {
                     b.HasOne("Course.ECommerce.Domain.Entities.ProductBrand", "ProductBrand")
@@ -151,6 +283,11 @@ namespace Course.ECommerce.Infrastructure.Migrations
                     b.Navigation("ProductBrand");
 
                     b.Navigation("ProductType");
+                });
+
+            modelBuilder.Entity("Course.ECommerce.Domain.Entities.Order.Order", b =>
+                {
+                    b.Navigation("ItemsOrdered");
                 });
 #pragma warning restore 612, 618
         }

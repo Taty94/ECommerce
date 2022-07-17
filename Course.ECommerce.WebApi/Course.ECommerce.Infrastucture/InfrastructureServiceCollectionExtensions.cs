@@ -13,6 +13,7 @@ namespace Course.ECommerce.Infrastructure
         {
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient(typeof(IBasketRepository), typeof(BasketRepository));
+            services.AddTransient(typeof(ILocationInfoRepository), typeof(LocationInfoRepository));
             //AGREGAR CONEXION A BDD
             services.AddDbContext<ECommerceDbContext>(options =>{ options.UseSqlServer(config.GetConnectionString("ECommerce"));});
 

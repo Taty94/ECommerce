@@ -1,4 +1,4 @@
-﻿using Course.ECommerce.Domain.Entities.Basket;
+﻿using Course.ECommerce.Domain.Entities.BasketClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;

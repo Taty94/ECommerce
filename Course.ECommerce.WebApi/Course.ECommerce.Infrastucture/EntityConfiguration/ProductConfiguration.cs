@@ -38,7 +38,6 @@ namespace Course.ECommerce.Infrastructure.EntityConfiguration
                 .HasForeignKey(b => b.ProductBrandId);
                 //.OnDelete(DeleteBehavior.Restrict);
 
-
         }
     }
 }
