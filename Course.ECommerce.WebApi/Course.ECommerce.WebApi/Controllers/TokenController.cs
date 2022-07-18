@@ -1,4 +1,5 @@
-﻿using Course.ECommerce.Domain.Entities;
+﻿using Course.ECommerce.Aplication.Services;
+using Course.ECommerce.Domain.Entities;
 using Course.ECommerce.WebApi.Classes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +17,12 @@ namespace Course.ECommerce.WebApi.Controllers
     public class TokenController : ControllerBase
     {
         private readonly JwtConfiguration jwtConfiguration;
+        private readonly ILocationInfoApplication locationInfoApp;
 
-        public TokenController(IOptions<JwtConfiguration> options)
+        public TokenController(IOptions<JwtConfiguration> options, ILocationInfoApplication locationInfoApp)
         {
             this.jwtConfiguration = options.Value;
+            this.locationInfoApp = locationInfoApp;
         }
 
 
@@ -28,8 +31,14 @@ namespace Course.ECommerce.WebApi.Controllers
         {
 
             //1. Validar User.
-            var userTest = "foo";
-            if (input.UserName!= userTest || input.Password != "123")
+            var user = await locationInfoApp.GetLocationInfoAsync(input.UserName);
+            if (user == null)
+            {
+                throw new NotFoundException("User Info no encontrada");
+            }
+
+            var userTest = user.Email;
+            if (input.UserName!= userTest || input.Password != "F#(k8284")
             {
                 throw new AuthenticationException("User or Passowrd incorrect!");
             }

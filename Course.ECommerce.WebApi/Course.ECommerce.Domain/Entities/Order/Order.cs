@@ -12,27 +12,31 @@ namespace Course.ECommerce.Domain.Entities.Order
     {
         public Order()
         {
+            
         }
 
-        public Order(string userEmail, ICollection<ItemOrdered> itemsOrdered, Delivery deliveryMethod, 
+        public Order(string userEmail,LocationInfo locationInfo, ICollection<ItemOrdered> itemsOrdered, Delivery deliveryMethod, 
             decimal subtotal)
         {
             UserEmail = userEmail;
+            LocationInfo = locationInfo;
             DeliveryMethod = deliveryMethod;
             ItemsOrdered = itemsOrdered;
             Subtotal = subtotal;
+            this.CreationDate = DateTime.Now;
         }
 
         public string UserEmail { get; set; }
-        public DateTimeOffset Date { get; set; } = DateTimeOffset.Now;
-        public Delivery DeliveryMethod { get; set; }
+        public LocationInfo LocationInfo { get; set; }
+        public Delivery? DeliveryMethod { get; set; }
+        public string DeliveryMethodId { get; set; }
         public ICollection<ItemOrdered> ItemsOrdered { get; set; }
         public Status Status { get; set; } = Status.Pendiente;
         public decimal Subtotal { get; set; }
 
-        public decimal CalculateTotal()
+        public decimal GetTotal()
         {
-            return Subtotal + DeliveryMethod.Price;
+            return DeliveryMethod!=null? Subtotal + DeliveryMethod.Price:0;
         }
     }
 
@@ -41,7 +45,7 @@ namespace Course.ECommerce.Domain.Entities.Order
         [EnumMember(Value="En camino")]
         Pendiente,
         Recibido,
-        [EnumMember(Value = "Orden Fallida")]
-        Fallo
+        [EnumMember(Value = "Orden Cancelada")]
+        Cancelar
     }
 }

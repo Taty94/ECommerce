@@ -11,17 +11,20 @@ namespace Course.ECommerce.Domain.Entities.Order
     {
         public ItemOrdered()
         {
+            this.CreationDate = DateTime.Now;
         }
 
-        public ItemOrdered(string name, decimal price, int quantiy)
+        public ItemOrdered(string name, decimal price, int quantity)
         {
             Name = name;
             Price = price;
-            Quantiy = quantiy;
+            Quantity = quantity;
         }
 
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public int Quantiy { get; set; }
+        public int Quantity { get; set; }
+        public Guid OrderId { get; set; }
+
     }
 }

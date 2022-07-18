@@ -10,7 +10,7 @@ namespace Course.ECommerce.WebApi.Controllers
 
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize]
+    [Authorize]
     public class ProductBrandController : ControllerBase, IProductBrandApplication
     {
         private readonly IProductBrandApplication productBrandApp;

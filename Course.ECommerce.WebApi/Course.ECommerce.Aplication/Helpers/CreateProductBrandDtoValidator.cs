@@ -11,7 +11,7 @@ namespace Course.ECommerce.Aplication.Helpers
                                  .WithMessage("{PropertyName} no debe estar vacio")
                                  .Length(4)
                                  .WithMessage("La longitud de {PropertyName} debe tener 4 caracteres. Ingresaste {TotalLength} caracteres.")
-                                 .Matches("^[a-zA-Z0-9_.-]*$").WithErrorCode("400")
+                                 .Matches("^[a-zA-Z0-9]*$")
                                  .WithMessage("{PropertyName} no tiene el formato correcto. Debe contener numeros,letras, . , _ ó - ");
            
             RuleFor(p => p.Description).NotNull().NotEmpty()

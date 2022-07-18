@@ -193,18 +193,26 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             //2.Pagination
             query = query.Skip(offset).Take(limit);
 
+            #region mapper
+            //var items = await query.Select(p => new ProductDto
+            //{
+            //    Id = p.Id,
+            //    Name = p.Name,
+            //    Price = p.Price,
+            //    Description = p.Description,
+            //    ProductBrand = p.ProductBrand.Description,
+            //    ProductType = p.ProductType.Description,
+            //    CreationDate = p.CreationDate,
+            //    ModifiedDate = p.ModifiedDate
+            //}).ToListAsync();
+            #endregion
 
-            var items = await query.Select(p => new ProductDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Description = p.Description,
-                ProductBrand = p.ProductBrand.Description,
-                ProductType = p.ProductType.Description,
-                CreationDate = p.CreationDate,
-                ModifiedDate = p.ModifiedDate
-            }).ToListAsync();
+            #region automapper
+            var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<Product, ProductDto>()
+                                .ForMember(p => p.ProductBrand, x => x.MapFrom(org => org.ProductBrand.Description))
+                                .ForMember(p => p.ProductType, x => x.MapFrom(org => org.ProductType.Description)));
+            var items = await query.ProjectTo<ProductDto>(configuration).ToListAsync(); ;
+            #endregion
 
             var resultQuery = new ResultPagination<ProductDto>();
             resultQuery.Total = total;

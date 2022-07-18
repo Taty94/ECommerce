@@ -19,7 +19,7 @@ namespace Course.ECommerce.Infrastructure.Repositories
             return await context.Set<T>().ToListAsync();//el set le dice a que tabla o entidad va a consultar
         }
 
-        public virtual async Task<T> GetByIdAsync(string id)
+        public async Task<T> GetByIdAsync(string id)
         {
             return await context.Set<T>().FindAsync(id);
         }

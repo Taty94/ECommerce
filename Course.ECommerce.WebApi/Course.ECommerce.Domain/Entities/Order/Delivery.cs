@@ -9,9 +9,15 @@ namespace Course.ECommerce.Domain.Entities.Order
 {
     public class Delivery : BaseCatalogueEntity
     {
+        public Delivery()
+        {
+            this.CreationDate = DateTime.Now;
+        }
+
         public string Name { get; set; }
         public string Time { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+
     }
 }

@@ -1,11 +1,13 @@
 ﻿using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities.BasketClasses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Course.ECommerce.WebApi.Controllers.BasketController
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BasketController : ControllerBase, IBasketApplication
     {
         private readonly IBasketApplication basketApp;

@@ -17,6 +17,8 @@ namespace Course.ECommerce.Aplication
             services.AddTransient(typeof(IProductBrandApplication), typeof(ProductBrandApplication));
             services.AddTransient(typeof(IBasketApplication), typeof(BasketApplication));
             services.AddTransient(typeof(ILocationInfoApplication), typeof(LocationInfoApplication));
+            services.AddTransient(typeof(IDeliveryApplication), typeof(DeliveryApplication));
+            services.AddTransient(typeof(IOrderApplication), typeof(OrderApplication));
             //automapper
             //agrega todos los profiles que existen el este proyecto
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

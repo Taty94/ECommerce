@@ -4,6 +4,7 @@ using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities;
 using Course.ECommerce.Domain.Repositories;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,18 +18,19 @@ namespace Course.ECommerce.Aplication.ServicesImpl
     {
         private readonly IGenericRepository<ProductType> typeRepository;
         private readonly IMapper mapper;
+        private readonly IValidator<CreateProductTypeDto> validator;
 
-        public ProductTypeApplication(IGenericRepository<ProductType> repository, IMapper mapper)
+        public ProductTypeApplication(IGenericRepository<ProductType> repository, IMapper mapper, IValidator<CreateProductTypeDto> validator)
         {
             this.typeRepository = repository;
             this.mapper = mapper;
+            this.validator = validator;
         }
 
         public async Task<ICollection<ProductTypeDto>> GetAsync()
         {
             var query = await typeRepository.GetAllAsync();
             //query = query.Where(pt => !pt.IsDeleted).ToList();
-
             #region mapper
             //return query.Select(pt => new ProductTypeDto
             //{
@@ -49,6 +51,13 @@ namespace Course.ECommerce.Aplication.ServicesImpl
         {
             var prodType = await typeRepository.GetByIdAsync(id);
 
+            #region NotFoundException
+            if (prodType == null)
+            {
+                throw new NotFoundException($"Tipo de producto con Id:{id} no existe");
+            }
+            #endregion
+
             #region mapper
             //return new ProductTypeDto
             //{
@@ -65,6 +74,10 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<ProductTypeDto> InsertAsync(CreateProductTypeDto productTypeDto)
         {
+            #region validator
+            await validator.ValidateAndThrowAsync(productTypeDto);
+            #endregion
+
             #region mapper
             //var productType = new ProductType()
             //{
@@ -78,7 +91,6 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
             #region automapper
             var productType = mapper.Map<ProductType>(productTypeDto);
-            productType.CreationDate = DateTime.Now;
             productType.ModifiedDate = DateTime.Now;
             #endregion
 
@@ -88,13 +100,24 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<ProductTypeDto> UpdateAsync(string id, CreateProductTypeDto productTypeDto)
         {
+            #region validator
+            await validator.ValidateAndThrowAsync(productTypeDto);
+            #endregion
+
             var productType = await typeRepository.GetByIdAsync(id);
-            
+
+            #region NotFoundException
+            if (productType == null)
+            {
+                throw new NotFoundException($"Tipo de producto con Id:{id} no existe");
+            }
+            #endregion
+
             //productType.Description = productTypeDto.Description;
             //productType.ModifiedDate = DateTime.Now;
 
             #region automapper
-            productType = mapper.Map<ProductType>(productTypeDto);
+            productType = mapper.Map(productTypeDto, productType);
             productType.ModifiedDate = DateTime.Now;
             #endregion
 
@@ -105,7 +128,9 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<bool> DeleteAsync(string id)
         {
-            return await typeRepository.DeleteAsync(id);
+            var isFound = await typeRepository.DeleteAsync(id);
+            if (!isFound) throw new NotFoundException($"Tipo de producto con Id:{id} no se elimino, no existe");
+            return isFound;
         }
 
         public async Task<ResultPagination<ProductTypeDto>> GetListAsync(string? search = "", int offset = 0, int limit = 10, string sort = "Description", string order = "asc")

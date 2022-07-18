@@ -16,6 +16,11 @@ namespace Course.ECommerce.Infrastructure.EntityConfiguration
             builder.ToTable("Order");
             builder.HasKey(o => o.Id);
 
+            builder.OwnsOne(o => o.LocationInfo, li =>
+            {
+                li.WithOwner();
+            });
+
             builder.Property(o => o.UserEmail)
                 .IsRequired();
 
@@ -33,7 +38,11 @@ namespace Course.ECommerce.Infrastructure.EntityConfiguration
                 .WithOne()
                 .OnDelete(DeleteBehavior.Cascade);
 
-            
+            builder.HasOne(b => b.DeliveryMethod)
+                .WithMany()
+                .HasForeignKey(b => b.DeliveryMethodId);
+
+
         }
     }
 }

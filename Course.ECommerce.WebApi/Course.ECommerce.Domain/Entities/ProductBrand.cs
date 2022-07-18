@@ -10,6 +10,11 @@ namespace Course.ECommerce.Domain.Entities
 {
     public class ProductBrand : BaseCatalogueEntity
     {
+        public ProductBrand()
+        {
+            this.CreationDate=DateTime.Now;
+        }
+
         public string Description { get; set; }
     }
 }

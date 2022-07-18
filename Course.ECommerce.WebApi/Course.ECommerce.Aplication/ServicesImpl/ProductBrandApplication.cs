@@ -47,6 +47,13 @@ namespace Course.ECommerce.Aplication.ServicesImpl
         {
             var productBrand = await brandRepository.GetByIdAsync(id);
 
+            #region NotFoundException
+            if (productBrand == null)
+            {
+                throw new NotFoundException($"Marca con Id:{id} no existe");
+            }
+            #endregion
+
             #region mapper
             //return new ProductBrandDto
             //{
@@ -80,7 +87,6 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
             #region automapper
             var productBrand = mapper.Map<ProductBrand>(prodBrandDto);
-            productBrand.CreationDate = DateTime.Now;
             productBrand.ModifiedDate = DateTime.Now;
             #endregion
 
@@ -90,7 +96,18 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<ProductBrandDto> UpdateAsync(string id, CreateProductBrandDto prodBrandDto)
         {
+            #region validator
+            await validator.ValidateAndThrowAsync(prodBrandDto);
+            #endregion
+
             var productBrand = await brandRepository.GetByIdAsync(id);
+
+            #region NotFoundException
+            if (productBrand == null)
+            {
+                throw new NotFoundException($"Marca con Id:{id} no existe");
+            }
+            #endregion
 
             //productBrand.Description = prodBrandDto.Description;
             //productBrand.ModifiedDate = DateTime.Now;
@@ -107,7 +124,9 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<bool> DeleteAsync(string id)
         {
-            return await brandRepository.DeleteAsync(id);
+            var isFound = await brandRepository.DeleteAsync(id);
+            if (!isFound) throw new NotFoundException($"Marca con Id:{id}, no se elimino, no existe");
+            return isFound;
         }
 
         public async Task<ResultPagination<ProductBrandDto>> GetListAsync(string? search = "", int offset = 0, int limit = 10, string sort = "Description", string order = "asc")

@@ -26,7 +26,7 @@ namespace Course.ECommerce.Infrastructure.EntityConfiguration
             builder.Property(it => it.Price)
                 .HasColumnType("decimal(18,2)");
 
-            builder.Property(it => it.Quantiy)
+            builder.Property(it => it.Quantity)
                 .IsRequired();
         }
     }

@@ -1,4 +1,5 @@
-﻿using Course.ECommerce.Aplication.Services;
+﻿using Course.ECommerce.Aplication.Dtos;
+using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities.Order;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,9 +24,9 @@ namespace Course.ECommerce.WebApi.Controllers.LocationInfoController
         }
 
         [HttpPost]
-        public async Task<LocationInfo> UpdateLocationInfoAsync(LocationInfo LocationInfo)
+        public async Task<LocationInfo> UpdateLocationInfoAsync(CreateLocationInfoDto locationInfoDto)
         {
-            return await locationInfoApp.UpdateLocationInfoAsync(LocationInfo);
+            return await locationInfoApp.UpdateLocationInfoAsync(locationInfoDto);
         }
 
         [HttpDelete]
