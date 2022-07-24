@@ -5,7 +5,6 @@ using Course.ECommerce.Aplication.Dtos;
 using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities;
 using Course.ECommerce.Domain.Repositories;
-using Course.ECommerce.Infrastructure;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
@@ -78,12 +77,12 @@ namespace Course.ECommerce.Aplication.ServicesImpl
         public async Task<ProductDto> InsertAsync(CreateProductDto productDto)
         {
             #region validator
-            //var isValid = await validator.ValidateAsync(productDto, options =>
-            //{
-            //    options.ThrowOnFailures();
-            //    options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
-            //});
-            await validator.ValidateAndThrowAsync(productDto);
+            var isValid = await validator.ValidateAsync(productDto, options =>
+            {
+                options.ThrowOnFailures();
+                options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
+            });
+            //await validator.ValidateAndThrowAsync(productDto);
             #endregion
 
             #region mappear
@@ -111,12 +110,12 @@ namespace Course.ECommerce.Aplication.ServicesImpl
         public async Task<ProductDto> UpdateAsync(Guid id, CreateProductDto productDto)
         {
             #region validator
-            //var isValid = await validator.ValidateAsync(productDto, options =>
-            //{
-            //    options.ThrowOnFailures();
-            //    options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
-            //});
-            await validator.ValidateAndThrowAsync(productDto);
+            var isValid = await validator.ValidateAsync(productDto, options =>
+            {
+                options.ThrowOnFailures();
+                options.IncludeRuleSets("ProductInfo", "ProductRelation").IncludeRulesNotInRuleSet();
+            });
+            //await validator.ValidateAndThrowAsync(productDto);
             #endregion
 
             var product = await productRepository.GetByIdAsync(id);
