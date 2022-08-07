@@ -39,7 +39,7 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             return await resultQuery.ToListAsync();
         }
 
-        public async Task<ProductDto> GetByIdAsync(Guid id)
+        public async Task<OneProductDto> GetOneByIdAsync(Guid id)
         {
             var query = productRepository.GetQueryable();
             query = query.Where(p => p.Id == id);
@@ -63,6 +63,27 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             //    CreationDate = p.CreationDate,
             //    ModifiedDate = p.ModifiedDate
             //}).SingleOrDefaultAsync();
+            #endregion
+
+            #region automapper
+            var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<Product, OneProductDto>()
+                                .ForMember(p => p.ProductBrandId, x => x.MapFrom(org => org.ProductBrand.Id))
+                                .ForMember(p => p.ProductTypeId, x => x.MapFrom(org => org.ProductType.Id)));
+            var resultQuery = query.ProjectTo<OneProductDto>(configuration);
+            #endregion
+            return await resultQuery.SingleOrDefaultAsync();
+        }
+
+        public async Task<ProductDto> GetByIdAsync(Guid id)
+        {
+            var query = productRepository.GetQueryable();
+            query = query.Where(p => p.Id == id);
+
+            #region NotFoundException
+            if (query.SingleOrDefaultAsync().Result == null)
+            {
+                throw new NotFoundException($"Producto con Id:{id} no existe");
+            }
             #endregion
 
             #region automapper
@@ -154,7 +175,7 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             return isFound;
         }
 
-        public async Task<ResultPagination<ProductDto>> GetListAsync(string? search = "", int offset = 0, int limit = 3, string sort = "Name", string order = "asc")
+        public async Task<ResultPagination<ProductDto>> GetListAsync(string? search = "",string? brandId="", string? typeId="", int offset = 0, int limit = 3, string sort = "Name", string order = "asc")
         {
             var query = productRepository.GetQueryable();
 
@@ -168,6 +189,18 @@ namespace Course.ECommerce.Aplication.ServicesImpl
                         //|| p.Code.ToUpper().StarsWith(search)
             }
 
+            if (!string.IsNullOrEmpty(brandId))
+            {
+                query = query.Where(
+                        p => p.ProductBrandId.ToUpper().Contains(brandId));
+            }
+
+            if (!string.IsNullOrEmpty(typeId))
+            {
+                query = query.Where(
+                        p => p.ProductTypeId.ToUpper().Contains(typeId));
+            }
+
             //1.Total
             var total = await query.CountAsync();
 
@@ -176,21 +209,40 @@ namespace Course.ECommerce.Aplication.ServicesImpl
             {
                 //Soportar Campos
                 //sort => name or price. Other trwo exception
-                switch (sort.ToUpper())
+                if (!string.IsNullOrEmpty(order) && order.Equals("asc"))
                 {
-                    case "NAME":
-                        query = query.OrderBy(p => p.Name);
-                        break;
-                    case "PRICE":
-                        query = query.OrderBy(p => p.Price);
-                        break;
-                    default:
-                        throw new ArgumentException($"The parameter sort {sort} not support");
+                    switch (sort.ToUpper())
+                    {
+                        case "NAME":
+                            query = query.OrderBy(p => p.Name);
+                            break;
+                        case "PRICE":
+                            query = query.OrderBy(p => p.Price);
+                            break;
+                        default:
+                            throw new ArgumentException($"The parameter sort {sort} not support");
+                    }
                 }
+                else if (!string.IsNullOrEmpty(order) && order.Equals("desc"))
+                {
+                    switch (sort.ToUpper())
+                    {
+                        case "NAME":
+                            query = query.OrderByDescending(p => p.Name);
+                            break;
+                        case "PRICE":
+                            query = query.OrderByDescending(p => p.Price);
+                            break;
+                        default:
+                            throw new ArgumentException($"The parameter sort {sort} not support");
+                    }
+                }
+
+
             }
 
             //2.Pagination
-            query = query.Skip(offset).Take(limit);
+            query = query.Skip(offset*limit).Take(limit);
 
             #region mapper
             //var items = await query.Select(p => new ProductDto

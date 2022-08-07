@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center mt-5">
+    <main class="form-signin w-100 m-auto ">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="needs-validation">
+            <img class="mb-4" src="../../../assets/images/logo.jpg" alt="" width="90" height="90">
+            <h1 class="h3 mb-3 fw-normal text-center">Log in</h1>
+
+            <div class="form-floating">
+                <input formControlName="email" type="email" class="form-control" id="email"
+                    placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+                <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="my-2">
+                    <small *ngIf="loginForm.controls['email'].errors?.['required']" class="text-danger">
+                        Email is required
+                    </small>
+                    <small *ngIf="loginForm.controls['email'].errors?.['email']" class="text-danger">
+                        Email format is not valid 
+                    </small>
+                </div>
+            </div>
+            <div class="form-floating">
+                <input formControlName="password" type="password" class="form-control" id="password"
+                    placeholder="Password">
+                <label for="floatingPassword">Password</label>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="mb-4">
+                    <small *ngIf="loginForm.controls['password'].errors?.['required']" class="text-danger">
+                        Password is required
+                    </small>
+                    <small *ngIf="loginForm.controls['password'].errors?.['pattern']" class="text-danger">
+                        Password mush have 2 uppercase and 3 lowercase letters, two digits, one special case and length 8
+                    </small>
+                </div>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+        </form>
+    </main>
+</div>

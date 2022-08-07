@@ -1,4 +1,5 @@
-﻿using Course.ECommerce.Aplication.Services;
+﻿using Course.ECommerce.Aplication.Dtos;
+using Course.ECommerce.Aplication.Services;
 using Course.ECommerce.Domain.Entities;
 using Course.ECommerce.WebApi.Classes;
 using Microsoft.AspNetCore.Http;
@@ -27,18 +28,17 @@ namespace Course.ECommerce.WebApi.Controllers
 
 
         [HttpPost]
-        public async Task<string> TokenAsync(UserInput input)
+        public async Task<TokenDto> TokenAsync(UserInput input)
         {
-
             //1. Validar User.
-            var user = await locationInfoApp.GetLocationInfoAsync(input.UserName);
+            var user = await locationInfoApp.GetLocationInfoAsync(input.Email);
             if (user == null)
             {
                 throw new NotFoundException("User Info no encontrada");
             }
 
             var userTest = user.Email;
-            if (input.UserName!= userTest || input.Password != "F#(k8284")
+            if (input.Email!= userTest || input.Password != "F#(k8284")
             {
                 throw new AuthenticationException("User or Passowrd incorrect!");
             }
@@ -66,8 +66,7 @@ namespace Course.ECommerce.WebApi.Controllers
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
 
-
-            return jwt;
+            return new TokenDto { Token=jwt};
         }
 
 

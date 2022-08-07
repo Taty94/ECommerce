@@ -14,6 +14,7 @@ namespace Course.ECommerce.Aplication.Dtos
         public string Description { get; set; }
         public string ProductType { get; set; }
         public string ProductBrand { get; set; }
+        public bool isDeleted { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
     }

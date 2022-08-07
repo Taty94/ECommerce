@@ -10,6 +10,7 @@ namespace Course.ECommerce.Aplication.Dtos {
         public string MainStreet { get; set; }
         public string SecondaryStreet { get; set; }
         public string City { get; set; }   
-        public string Phone { get; set; }   
+        public string Phone { get; set; }
+        public string Role { get; set; }
     }
 }

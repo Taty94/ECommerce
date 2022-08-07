@@ -27,6 +27,7 @@ namespace Course.ECommerce.Aplication.Helpers
                 .WithMessage("La longitud de {PropertyName} debe tener 10 caracteres. Ingresaste {TotalLength} caracteres.")
                 .Matches(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}")
                 .WithMessage("{PropertyName} no coincide con el Formato [(xxx)-xxxxxxx,(xxx)-+xxxxxxx, (0x)-xxx-xxx,0x-xxx-xxx");
+            RuleFor(li => li.Role).NotNull().NotEmpty();
         }
 
     }

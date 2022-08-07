@@ -1,27 +1,39 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IPagination } from './models/pagination';
-import { IProduct } from './models/product';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { AccountService } from './components/account/account.service';
+import { BasketService } from './components/basket/basket.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'ECommerce_Client';
 
-  products:IProduct[] = [];
+  constructor(private basketService: BasketService, private accountService: AccountService) { }
 
-  constructor(private http: HttpClient){  }
-  
   ngOnInit(): void {
-    this.http.get("https://localhost:44336/api/Product?offset=0&limit=50&sort=Name&order=asc")
-    .subscribe((response:IPagination)=>{
-      this.products = response.items;
-      console.log(this.products);
-    },error => {
-      console.log(error);
-    })
+    this.loadBasket();
+    this.loadUserLogged();
+  }
+
+  loadBasket() {
+    const basketId = localStorage.getItem('basketId');
+    if (basketId) {
+      this.basketService.getBasket(basketId).subscribe(response => {
+        console.log('getting the basket');
+      }, error => {
+        console.log(error);
+      })
+    }
+  }
+
+  loadUserLogged() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.accountService.getUserLoggedIn('tatiana94montenegro@gmail.com')
+        .subscribe();
+    }
   }
 }

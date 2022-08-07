@@ -1,0 +1,26 @@
+<div class="mt-4" [formGroup]="deliveryForm">
+    <div class="row " >
+        <div class="col-6 form-group mt-2" *ngFor="let method of deliveryMethods">
+            <input type="radio"
+                id={{method.id}}
+                (click)="setDeliveryPrice(method)" 
+                value={{method.id}} 
+                formControlName="deliveryMethod"
+                class="custom-control-input">
+            <label for={{method.id}} class="custom-control-label">
+                <strong>{{method.name}} - {{method.price | currency}}</strong>
+                <br>
+                <span class="label-description">{{method.description}}</span>
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class=" float-none d-flex jusitfy-content-between flex-column flex-lg-row mb-5 mt-5">
+    <button class="btn btn-outline-primary" routerLink="/basket">
+        <i class="fa fa-angle-left"> Back to Basket</i>
+    </button>
+    <button class="btn btn-primary" (click)="submitOrder()">
+        Submit Order <i class="fa fa-angle-right"></i>
+    </button>
+</div>

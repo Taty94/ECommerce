@@ -1,0 +1,10 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid" *ngFor="let step of steps; let i=index">
+            <a class="navbar-brand font-weigth-bold text-uppercase">{{step.label}}</a> <!--(click)="selectStepByIndex(i)"-->
+        </div>
+    </nav>
+    <div>
+        <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+    </div>
+</div>

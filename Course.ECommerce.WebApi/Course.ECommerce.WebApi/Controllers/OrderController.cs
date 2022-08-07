@@ -8,7 +8,7 @@ namespace Course.ECommerce.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class OrderController : ControllerBase ,IOrderApplication
     {
         private readonly IOrderApplication orderApp;

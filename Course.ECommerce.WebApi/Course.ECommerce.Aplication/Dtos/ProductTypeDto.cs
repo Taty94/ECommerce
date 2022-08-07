@@ -10,6 +10,7 @@ namespace Course.ECommerce.Aplication.Dtos
     {
         public string Id { get; set; }
         public string Description { get; set; }
+        public bool IsDeleted { get; set; }
         public DateTime CreationDate { get; set; }
 
     }

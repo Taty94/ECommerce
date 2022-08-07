@@ -36,7 +36,7 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<Basket> UpdateBasketAsync(Basket basket)
         {
-            await validator.ValidateAndThrowAsync(basket);
+            //await validator.ValidateAndThrowAsync(basket);
 
             var updateBasket = await basketRepository.UpdateBasketAsync(basket);
 

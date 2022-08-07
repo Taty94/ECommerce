@@ -1,0 +1,6 @@
+<header>
+    <span *ngIf="total && total>0">Showing <strong>{{itemsPerPage}}</strong> of <strong>{{total}}</strong> Results</span>
+    <span *ngIf="total===0">
+        There are <strong>0</strong> results 
+    </span>
+</header>

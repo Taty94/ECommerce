@@ -1,0 +1,14 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-8">
+            <app-delivery-step [linearSelected]="false" #appStepper>
+                <cdk-step [label]="'Delivery Method'" [completed]="(deliveryForm.valid)">
+                    <app-checkout-delivery [deliveryForm]="deliveryForm"></app-checkout-delivery>
+                </cdk-step>
+            </app-delivery-step>
+        </div>
+        <div class="col-4">
+            <app-aggregate-order></app-aggregate-order>
+        </div>
+    </div>
+</div>

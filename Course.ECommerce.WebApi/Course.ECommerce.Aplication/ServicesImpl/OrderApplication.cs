@@ -141,7 +141,7 @@ namespace Course.ECommerce.Aplication.ServicesImpl
 
         public async Task<OrderDetailedDto> InsertOrderAsync(CreateOrderDto orderDto)
         {
-            await validator.ValidateAndThrowAsync(orderDto);
+            //await validator.ValidateAndThrowAsync(orderDto);
 
             //1. Obtener carrito
             var basket = await basketRepository.GetBasketAsync(orderDto.BasketId);

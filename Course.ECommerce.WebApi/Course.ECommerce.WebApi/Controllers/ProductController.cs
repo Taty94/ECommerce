@@ -18,16 +18,16 @@ namespace Course.ECommerce.WebApi.Controllers
             this.productApp = productApp;
         }
 
-        [HttpGet]
+        [HttpGet ("all")]
         public async Task<ICollection<ProductDto>> GetAllAsync()
         {
             return await productApp.GetAllAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ProductDto> GetByIdAsync(Guid id)
+        public async Task<OneProductDto> GetOneByIdAsync(Guid id)
         {
-            return await productApp.GetByIdAsync(id);
+            return await productApp.GetOneByIdAsync(id);
         }
 
         [HttpPost]
@@ -49,10 +49,10 @@ namespace Course.ECommerce.WebApi.Controllers
         }
 
         
-        [HttpGet("pagination")]
-        public async Task<ResultPagination<ProductDto>> GetListAsync(string? search = "", int offset = 0, int limit = 3, string sort = "Name", string order = "asc")
+        [HttpGet]
+        public async Task<ResultPagination<ProductDto>> GetListAsync(string? search = "", string? brandId = "", string? typeId = "", int offset = 0, int limit = 3, string sort = "Name", string order = "asc")
         {
-            return await productApp.GetListAsync(search,offset,limit,sort,order);
+            return await productApp.GetListAsync(search,brandId, typeId, offset,limit,sort,order);
         }
     }
 }

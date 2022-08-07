@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <section class="col-9">
+            <div class="d-flex justify-content-between align-items-center pb-2">
+                
+                <app-paging-header [total]="total" [itemsPerPage]="itemsPerPage"></app-paging-header>
+
+                <div class="input-group" style="width: 400px;">
+                    <input type="text" (keyup)="onSearch()" #search class="form-control" placeholder="Search">
+                    <button (click)="onSearch()" class="btn btn-outline-primary " type="button">Search</button>
+                    <button (click)="onClean()" class="btn btn-outline-success " type="button">Reset</button>
+                </div>
+
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col mb-4" *ngFor="let product of products">
+                    <app-product-item [product]="product"></app-product-item>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mt-3" *ngIf="total>0">
+                <app-pager [total]="total" [limit]="this.paginationParams.limit" (pageChanged)="onPageChanged($event)" ></app-pager>
+            </div>
+        </section>
+        <section class="col-3">
+            <h5 class="text-warning ms-3 mt-4 mb-3">Sort</h5>
+            <select class="form-control mb-4" (change)="onSortSelected($event.target.value)">
+                <option *ngFor="let sort of sortOptions" [value]="sort.value">
+                    {{sort.detail}}
+                </option>
+            </select>
+
+
+            <h5 class="text-warning ms-3">Brands</h5>
+            <div class="list-group my-3">
+                <a class="list-group-item list-group-item-action" aria-current="true"
+                    *ngFor="let brand of brands" [class.active]="brand.id === this.paginationParams.brandId" [value]="brand.id"
+                    (click)="onBrandSelected(brand.id)">
+                    {{brand.description}}
+                </a>
+            </div>
+            <h5 class="text-warning ms-3">Types</h5>
+            <div class="list-group my-3">
+                <a class="list-group-item list-group-item-action" aria-current="true"
+                    *ngFor="let type of types" [class.active]="type.id === this.paginationParams.typeId" [value]="type.id"
+                    (click)="onTypeSelected(type.id)">
+                    {{type.description}}
+                </a>
+            </div>
+        </section>
+    </div>
+</div>

@@ -7,7 +7,7 @@ namespace Course.ECommerce.WebApi.Controllers.BasketController
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class BasketController : ControllerBase, IBasketApplication
     {
         private readonly IBasketApplication basketApp;
